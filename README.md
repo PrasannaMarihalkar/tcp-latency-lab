@@ -129,6 +129,7 @@ sudo tc qdisc del dev lo root
 ---
 
 ## How RTT Is Measured
+```
 Client                          Server
 │                               │
 │  t0 = now_ns()                │
@@ -137,6 +138,7 @@ Client                          Server
 │                               │  echo back unchanged
 │<─── recv(reply, 48 bytes) ────│
 │  rtt = now_ns() - reply.send_ts
+```
 
 - Timestamp is embedded **inside** the message — no shared memory needed
 - `CLOCK_MONOTONIC` is used — never jumps, unaffected by NTP adjustments
@@ -146,21 +148,26 @@ Client                          Server
 ---
 
 ## Server Options
+```
 --port N        Port to listen on (default: 9999)
 --nodelay       Enable TCP_NODELAY (disable Nagle's algorithm)
 --quickack      Enable TCP_QUICKACK (re-applied after each recv)
 --affinity N    Pin server thread to CPU core N
 --bufsize N     Socket buffer size in bytes (default: 4MB)
 --verbose       Log stats every 10,000 messages
+```
+
 
 ## Client Options
+
+```
 --host H        Server IP (default: 127.0.0.1)
 --port N        Server port (default: 9999)
 --count N       Messages per scenario (default: 100000)
 --warmup N      Warmup messages to discard (default: 5000)
 --affinity N    Pin client thread to CPU core N
 --mode N        Run only scenario N (0–3), default runs all
-
+```
 ---
 
 ## What This Maps To in Production HFT
