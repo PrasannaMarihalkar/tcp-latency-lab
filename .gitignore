@@ -1,0 +1,8 @@
+server
+client
+benchmark
+server_dbg
+client_dbg
+*.o
+*.a
+.DS_Store
