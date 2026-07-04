@@ -61,6 +61,8 @@ This project handles it correctly in the hot loop inside `benchmark.cpp`.
 ---
 
 ## Project Structure
+
+```
 tcp-latency-lab/
 ├── src/
 │   ├── common.hpp       ← Socket helpers, timestamps, Message struct
@@ -74,6 +76,7 @@ tcp-latency-lab/
 ├── results/
 │   └── benchmark.csv    ← Machine-readable output
 └── Makefile
+```
 
 ---
 
